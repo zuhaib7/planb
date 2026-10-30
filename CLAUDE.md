@@ -9,3 +9,4 @@ The user often forgets which skills are installed. When a request fits one, name
 - Stress-testing UI: `break-ui`
 - App Store / Play Store images: `app-store-screenshots`
 - Planning, debugging, reviews: `superpowers` skills (brainstorming, writing-plans, systematic-debugging)
+- Enterprise AI, NAS (Synology), FortiGate/Omada networking, RAG, n8n, ROOF/Ashmont portal: `friday-ai-enterprise-engineer`
