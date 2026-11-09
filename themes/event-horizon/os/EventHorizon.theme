@@ -1,0 +1,28 @@
+; Event Horizon — Windows 10/11 theme
+; Double-click to apply (install.ps1 copies the wallpaper to the path below first).
+[Theme]
+DisplayName=Event Horizon
+
+[Control Panel\Desktop]
+Wallpaper=%USERPROFILE%\Pictures\EventHorizon\event-horizon-4k.png
+TileWallpaper=0
+WallpaperStyle=10
+Pattern=
+
+[VisualStyles]
+Path=%SystemRoot%\resources\themes\Aero\Aero.msstyles
+ColorStyle=NormalColor
+Size=NormalSize
+AutoColorization=0
+ColorizationColor=0XC4FF9A3C
+SystemMode=Dark
+AppMode=Dark
+
+[MasterThemeSelector]
+MTSM=RJSPBS
+
+[Sounds]
+SchemeName=
+
+[boot]
+SCRNSAVE.EXE=
