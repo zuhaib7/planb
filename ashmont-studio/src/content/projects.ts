@@ -1,39 +1,68 @@
 /**
- * Portfolio entries. Names and types are as listed on ashmont.com.sa.
- * Facts (area, units, role, status) stay empty until the client verifies them;
- * the UI hides any fact with verified: false. Do not invent values.
+ * Portfolio, built from two sources:
+ *  - projects.website.json: generated from ashmont.com.sa by scripts/sync_website_projects.py
+ *  - projects.curated.ts:   Arabic copy, categories and featured order, maintained by hand
+ *
+ * Only fields Ashmont publishes on its own site are shown. Construction dates and
+ * award claims are deliberately not imported (see docs/open-items.md).
  */
-export type ProjectCategory = "residential" | "hospitality" | "mixedUse";
+import website from "./projects.website.json";
+import { CURATED, FEATURED, PROGRAMME_AR, SERVICES_AR } from "./projects.curated";
 
-export interface ProjectFact {
-  key: "area" | "units" | "role" | "status";
-  value: { en: string; ar: string };
-  verified: boolean;
-}
+export type ProjectCategory = "residential" | "hospitality" | "mixedUse";
+type Bilingual = { en: string; ar: string };
 
 export interface Project {
   slug: string;
-  name: { en: string; ar: string };
+  name: Bilingual;
   category: ProjectCategory;
-  facts: ProjectFact[];
+  location: Bilingual;
+  programme: Bilingual;
+  services: Bilingual;
+  /** m² */
+  builtUpArea: number | null;
+  /** m²; null for interior-only projects */
+  landArea: number | null;
+  summary: Bilingual;
+  images: { hero: string; thumb: string; gallery: string[] };
+  sourceUrl: string;
   /** GLB (Draco) URLs per LOD, bundled or on the Bunny CDN. Empty until real models arrive. */
   models: { low?: string; high?: string };
   /** Plain-language description of the 3D model, for screen readers. */
-  modelDescription?: { en: string; ar: string };
+  modelDescription?: Bilingual;
 }
 
-export const PROJECTS: Project[] = [
-  { slug: "regent-park", name: { en: "Regent Park", ar: "ريجنت بارك" }, category: "mixedUse", facts: [], models: {} },
-  { slug: "al-amri-resort", name: { en: "Al-Amri Resort", ar: "منتجع العمري" }, category: "hospitality", facts: [], models: {} },
-  { slug: "portal-hotel", name: { en: "Portal Hotel", ar: "فندق بورتال" }, category: "hospitality", facts: [], models: {} },
-  { slug: "al-yasmin-residence", name: { en: "Al-Yasmin Residence", ar: "سكن الياسمين" }, category: "residential", facts: [], models: {} },
-  { slug: "maison-novaire", name: { en: "Maison Novaire", ar: "ميزون نوفير" }, category: "residential", facts: [], models: {} },
-  { slug: "al-wurud-residence", name: { en: "Al-Wurud Residence", ar: "سكن الورود" }, category: "residential", facts: [], models: {} },
-];
+// Vite turns each image into a hashed, bundled URL; nothing is fetched until rendered.
+const IMAGES = import.meta.glob<string>("../assets/images/projects/*/*.webp", { eager: true, query: "?url", import: "default" });
+const img = (slug: string, file: string) => {
+  const url = IMAGES[`../assets/images/projects/${slug}/${file}`];
+  if (!url) throw new Error(`Missing image ${slug}/${file}; run scripts/sync_website_projects.py`);
+  return url;
+};
 
-/** OPEN ITEM: the site labels Regent Park (mixed-use) and Portal Hotel (hospitality); the other categories are inferred from the names. Confirm with the client. */
+export const WEBSITE_SYNCED_ON: string = website.syncedOn;
 
-export const verifiedFacts = (p: Project) => p.facts.filter((f) => f.verified);
+export const PROJECTS: Project[] = website.projects.map((w) => {
+  const c = CURATED[w.slug];
+  if (!c) throw new Error(`No curated entry for ${w.slug}; add it to projects.curated.ts`);
+  return {
+    slug: w.slug,
+    name: { en: w.name, ar: c.nameAr },
+    category: c.category,
+    location: { en: w.location, ar: c.locationAr },
+    programme: { en: w.programme, ar: PROGRAMME_AR[w.programme] ?? w.programme },
+    services: { en: w.services, ar: SERVICES_AR[w.services] ?? w.services },
+    builtUpArea: w.builtUpArea,
+    landArea: w.landArea,
+    summary: { en: c.summaryEn ?? w.summary, ar: c.summaryAr },
+    images: { hero: img(w.slug, "hero.webp"), thumb: img(w.slug, "thumb.webp"), gallery: w.gallery.map((g) => img(w.slug, g)) },
+    sourceUrl: w.sourceUrl,
+    models: {},
+  };
+});
+
+export const FEATURED_PROJECTS: Project[] = FEATURED.map((slug) => PROJECTS.find((p) => p.slug === slug)).filter((p): p is Project => Boolean(p));
+
 export const findProject = (slug: string | undefined) => PROJECTS.find((p) => p.slug === slug);
 
 /** Studio stats as approved in the Ashmont brand guidelines. Use exactly. */

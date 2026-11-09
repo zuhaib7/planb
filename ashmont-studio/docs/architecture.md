@@ -8,7 +8,8 @@ ashmont-studio/
 │   ├── app/                  shell: routes, layout (rail on desktop, bottom bar on phone), language gate
 │   ├── design/               tokens.css (brand + semantic tokens), contrast checker, UI primitives
 │   ├── i18n/                 i18next, ar + en locales, <html lang/dir> sync
-│   ├── content/              portfolio entries and approved studio stats
+│   ├── content/              portfolio (website JSON + curated Arabic layer) and studio stats
+│   ├── assets/images/projects/  WebP renders synced from ashmont.com.sa
 │   ├── lib/                  config, settings store, device tier, external links
 │   └── features/<screen>/    home, projects (+ 3D viewer), services, insights, consultation, about, contact, settings
 ├── src-tauri/                Rust shell, capabilities, CSP, bundle config
@@ -27,6 +28,21 @@ ashmont-studio/
 | **Zustand persisted to localStorage, preferences only** | Language, theme, reduced motion, data saver. Never personal data. Storage access is wrapped so private mode can't crash the app. |
 | **TanStack Query `offlineFirst`** with a localStorage cache for Insights | Content survives weak networks; the feed is validated with Zod because it comes from outside the app. |
 | **Semantic colour tokens over brand tokens** | Brand gold (#B2A05E) fails AA as text on cream (2.38:1), so text uses derived ink colours. A unit test re-checks every pair on each run. |
+
+## Portfolio data
+
+```
+ashmont.com.sa/projects ──scripts/sync_website_projects.py──▶ src/content/projects.website.json   (generated)
+                                                        └──▶ src/assets/images/projects/<slug>/  (hero 1600w, thumb 640w, up to 6 gallery 1280w, WebP q70)
+src/content/projects.curated.ts (hand-written: Arabic copy, category, featured) ──┐
+                                                                                  ├─▶ src/content/projects.ts → screens
+src/content/projects.website.json ────────────────────────────────────────────────┘
+```
+
+- Re-run the sync whenever the website changes: `python3 -I scripts/sync_website_projects.py`. Tests then fail if a new project has no Arabic entry, or a new programme or scope value has no translation.
+- The script skips construction dates and strips award sentences (see open items).
+- Images are bundled, not hot-linked, so the portfolio works offline and the CSP stays `img-src 'self'`. Cost: about 9.6 MB, which takes the Linux installer from 3 MB to 12 MB. Thumbnails load eagerly only for the first three cards; everything else is `loading="lazy"`.
+- Built-up areas sum to 121,522 m², matching the CMS export; a unit test pins this as a parsing check.
 
 ## Device tiers (3D)
 
@@ -50,7 +66,7 @@ The thresholds are a first guess. Calibrate on the real test devices (see open i
 - GLB + Draco via `useGLTF(url, "/draco/")`, picking `models.high` or `models.low` by tier.
 - The canvas has `role="img"` with a text description of the model.
 - Disposal: materials created in the viewer are disposed on unmount; `useGLTF.clear` drops cached GLBs; R3F disposes the renderer. An e2e test opens and closes the viewer 23 times and checks JS heap growth stays under 8 MB (measured: 1.7 MB).
-- Until real models arrive it renders an **illustrative massing**, labelled "Illustrative massing, not a delivered design."
+- The viewer is opt-in ("Explore in 3D") below the real photography. Until real models arrive it renders an **illustrative massing**, labelled "Illustrative massing, not a delivered design."
 
 Not built yet: two-point measurement (needs real-world model units), LOD switching inside one model (needs the client's GLB files).
 

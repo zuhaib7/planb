@@ -48,9 +48,7 @@
     "open": "View project",
     "back": "Back to projects",
     "facts": "Key facts",
-    "factsPending": "Project facts are shown once the client has verified them.",
     "gallery": "Gallery",
-    "galleryPending": "Project photography will appear here.",
     "viewer": "3D model",
     "explore3d": "Explore in 3D",
     "noWebgl": "Your device can't display 3D here. Static views are shown instead.",
@@ -72,7 +70,18 @@
       "night": "Night",
       "illustrative": "Illustrative massing, not a delivered design.",
       "description": "Illustrative 3D massing: a stepped stone podium with two volumes and a planted terrace. Use the buttons to rotate, zoom, cut a section and change materials and light."
-    }
+    },
+    "fields": {
+      "location": "Location",
+      "programme": "Programme",
+      "services": "Scope",
+      "builtUp": "Built-up area",
+      "land": "Land area"
+    },
+    "source": "As published on ashmont.com.sa",
+    "imageAlt": "{{name}}, image {{n}} of {{total}}",
+    "heroAlt": "{{name}}, main view",
+    "area": "{{value}} m²"
   },
   "services": {
     "eyebrow": "— What we do",

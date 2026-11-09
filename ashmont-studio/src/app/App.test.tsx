@@ -27,11 +27,22 @@ describe("app shell", () => {
     expect(within(main).queryByText("Maison Novaire")).not.toBeInTheDocument();
   });
 
-  it("hides unverified project facts and falls back without WebGL", async () => {
+  it("shows published facts and falls back without WebGL", async () => {
     renderWith(<AppRoutes />, { route: "/projects/regent-park" });
-    expect(await screen.findByText("Project facts are shown once the client has verified them.")).toBeInTheDocument();
+    expect(await screen.findByText("47,360 m²")).toBeInTheDocument();
+    expect(screen.getByText("6,850 m²")).toBeInTheDocument();
+    expect(screen.getByText("Full Architectural Design")).toBeInTheDocument();
+    expect(screen.getByText("As published on ashmont.com.sa")).toBeInTheDocument();
+    expect(screen.getByRole("img", { name: "Regent Park, main view" })).toBeInTheDocument();
     // jsdom has no WebGL, so the static fallback message must show instead of a blank canvas.
     expect(screen.getByText(/can't display 3D/)).toBeInTheDocument();
+  });
+
+  it("shows Arabic project data", async () => {
+    renderWith(<AppRoutes />, { route: "/projects/maison-novaire", lang: "ar" });
+    expect(await screen.findByRole("heading", { level: 1, name: "ميزون نوفير" })).toBeInTheDocument();
+    expect(screen.getByText("300 م²")).toBeInTheDocument();
+    expect(screen.queryByText("مساحة الأرض")).not.toBeInTheDocument();
   });
 
   it("shows not found for unknown projects", async () => {

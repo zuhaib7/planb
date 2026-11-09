@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { PROJECTS, STUDIO_STATS } from "../../content/projects";
+import { FEATURED_PROJECTS, STUDIO_STATS } from "../../content/projects";
+import { ProjectCard } from "../projects/ProjectCard";
 import { useSettings } from "../../lib/settings";
 import type { Language } from "../../i18n";
 
@@ -61,12 +62,9 @@ export function HomePage() {
       <section aria-labelledby="featured">
         <h2 id="featured" className="eyebrow mb-6">{t("home.featured")}</h2>
         <ul className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4" aria-label={t("home.featured")}>
-          {PROJECTS.slice(0, 4).map((p) => (
-            <li key={p.slug} className="w-64 shrink-0 snap-start">
-              <Link to={`/projects/${p.slug}`} className="block rounded-md border border-line p-5 hover:bg-surface">
-                <span className="eyebrow block text-[0.65rem]">{t(`projects.${p.category}`)}</span>
-                <span className="mt-8 block text-xl font-light">{p.name[lang]}</span>
-              </Link>
+          {FEATURED_PROJECTS.map((p) => (
+            <li key={p.slug} className="w-72 shrink-0 snap-start">
+              <ProjectCard project={p} />
             </li>
           ))}
         </ul>

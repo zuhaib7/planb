@@ -7,7 +7,10 @@ test("browse projects: filter and open a detail page", async ({ page }) => {
   await expect(page.getByRole("main").getByText("Portal Hotel")).toHaveCount(0);
   await page.getByRole("link", { name: /Maison Novaire/ }).click();
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Maison Novaire");
-  await expect(page.getByText("Project facts are shown once the client has verified them.")).toBeVisible();
+  await expect(page.getByText("300 m²")).toBeVisible();
+  // Real images load from the bundle (no broken images).
+  const broken = await page.locator("main img").evaluateAll((imgs) => (imgs as HTMLImageElement[]).filter((i) => i.complete && i.naturalWidth === 0).length);
+  expect(broken).toBe(0);
 });
 
 test("consultation: validation, consent and offline-safe submission state", async ({ page }) => {
@@ -40,8 +43,7 @@ test("keyboard: skip link and focus ring", async ({ page, isMobile }) => {
 
 test("3D viewer renders, responds to keyboard controls, and has a text description", async ({ page }) => {
   await start(page, "en", "/projects/regent-park");
-  const explore = page.getByRole("button", { name: "Explore in 3D" });
-  if (await explore.isVisible().catch(() => false)) await explore.click();
+  await page.getByRole("button", { name: "Explore in 3D" }).click();
   const canvas = page.getByRole("img", { name: /Illustrative 3D massing/ });
   await expect(canvas).toBeVisible({ timeout: 15000 });
   await page.getByRole("button", { name: "Rotate left" }).focus();
@@ -59,8 +61,7 @@ test("3D viewer: no WebGL context leak after 20 open/close cycles", async ({ pag
   const heap = () => page.evaluate(() => { (window as unknown as { gc?: () => void }).gc?.(); return (performance as unknown as { memory?: { usedJSHeapSize: number } }).memory?.usedJSHeapSize ?? 0; });
   const cycle = async () => {
     await page.goto("/#/projects/regent-park");
-    const explore = page.getByRole("button", { name: "Explore in 3D" });
-    if (await explore.isVisible().catch(() => false)) await explore.click();
+    await page.getByRole("button", { name: "Explore in 3D" }).click();
     await expect(page.locator("canvas")).toBeVisible({ timeout: 15000 });
     await page.waitForTimeout(150);
     await page.goto("/#/projects");

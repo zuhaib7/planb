@@ -1,0 +1,232 @@
+{
+  "source": "https://ashmont.com.sa",
+  "syncedOn": "2026-11-09",
+  "projects": [
+    {
+      "slug": "al-amri-resort",
+      "name": "Al-Amri Resort",
+      "location": "Riyadh, Saudi Arabia",
+      "programme": "Residential",
+      "services": "Interior Design & Outdoor Hospitality",
+      "builtUpArea": 1500,
+      "landArea": 20900,
+      "summary": "Al-Amri Resort is where material craft and personal narrative converge into a single, coherent design. Across the Living Quarter, Guest Pavilion, and Al-Khayma Retreat, the project is defined by a palette of travertine, basalt, dark walnut, and hand-finished cognac leather, each material chosen with intention and carefully integrated throughout the spaces.",
+      "gallery": [
+        "gallery-1.webp",
+        "gallery-2.webp",
+        "gallery-3.webp",
+        "gallery-4.webp",
+        "gallery-5.webp",
+        "gallery-6.webp"
+      ],
+      "sourceUrl": "https://ashmont.com.sa/projects/al-amri-resort"
+    },
+    {
+      "slug": "al-arid-resort",
+      "name": "Al-Arid Resort",
+      "location": "Riyadh, Saudi Arabia",
+      "programme": "Hospitality",
+      "services": "Architecture / Interior Design",
+      "builtUpArea": 810,
+      "landArea": 1350,
+      "summary": "Al-Arid is a private chalet where the outdoor spaces are designed with the same level of attention as the architecture that frames them. Natural stone runs across the exterior surfaces, its texture and tone setting the material tone for everything around it.",
+      "gallery": [
+        "gallery-1.webp",
+        "gallery-2.webp",
+        "gallery-3.webp",
+        "gallery-4.webp",
+        "gallery-5.webp",
+        "gallery-6.webp"
+      ],
+      "sourceUrl": "https://ashmont.com.sa/projects/al-arid-resort"
+    },
+    {
+      "slug": "al-jazirah-heights",
+      "name": "Al-Jazirah Heights",
+      "location": "Riyadh, Saudi Arabia",
+      "programme": "Residential",
+      "services": "Architectural & Interior Design",
+      "builtUpArea": 27409,
+      "landArea": 17646,
+      "summary": "Al-Jazirah Heights is a large-scale residential development in Riyadh, shaped by a clear minimalist vision. Its facade combines cream and off-white vertical panels, dark charcoal stone at the base, and continuous linear strips creating a strong architectural rhythm.",
+      "gallery": [
+        "gallery-1.webp",
+        "gallery-2.webp",
+        "gallery-3.webp",
+        "gallery-4.webp",
+        "gallery-5.webp",
+        "gallery-6.webp"
+      ],
+      "sourceUrl": "https://ashmont.com.sa/projects/al-jazirah-heights"
+    },
+    {
+      "slug": "al-malqa-residence",
+      "name": "Al-Malqa Residence",
+      "location": "Al Malqa, Riyadh, Saudi Arabia",
+      "programme": "Residential",
+      "services": "Architecture / MEP / Interior Design",
+      "builtUpArea": 2150,
+      "landArea": 1050,
+      "summary": "Al Malqa Residence is a contemporary four-storey residential development located in Al Malqa, Riyadh. The architecture is defined by a refined natural-stone facade, vertically articulated to create depth, rhythm, and a strong sense of proportion.",
+      "gallery": [
+        "gallery-1.webp",
+        "gallery-2.webp",
+        "gallery-3.webp",
+        "gallery-4.webp",
+        "gallery-5.webp",
+        "gallery-6.webp"
+      ],
+      "sourceUrl": "https://ashmont.com.sa/projects/al-malqa-residence"
+    },
+    {
+      "slug": "al-qirawan-resort",
+      "name": "Al-Qirawan Resort",
+      "location": "Al-Qirawan, Riyadh, Saudi Arabia",
+      "programme": "Hospitality",
+      "services": "Architecture / Interior Design",
+      "builtUpArea": 930,
+      "landArea": 1550,
+      "summary": "Al-Qirawan is a resort of four units, each with its own layout and character, yet all shaped by the same material conviction: raw and refined can occupy the same space. The exterior combines dark basalt paving, local natural stone, and a flat concrete profile that sits quietly against its setting.",
+      "gallery": [
+        "gallery-1.webp",
+        "gallery-2.webp",
+        "gallery-3.webp",
+        "gallery-4.webp",
+        "gallery-5.webp",
+        "gallery-6.webp"
+      ],
+      "sourceUrl": "https://ashmont.com.sa/projects/al-qirawan-resort"
+    },
+    {
+      "slug": "al-wurud-residence",
+      "name": "Al-Wurud Residence",
+      "location": "Riyadh, Saudi Arabia",
+      "programme": "Residential",
+      "services": "Architecture / MEP / Interior Design",
+      "builtUpArea": 22288,
+      "landArea": 10978,
+      "summary": "Al Wurud Residence exemplifies waterfront contemporary architecture through modular stacking and elevated ground levels. The project demonstrates how architectural systems can establish visual interest while accommodating waterfront integration.",
+      "gallery": [
+        "gallery-1.webp",
+        "gallery-2.webp",
+        "gallery-3.webp",
+        "gallery-4.webp"
+      ],
+      "sourceUrl": "https://ashmont.com.sa/projects/al-wurud-residence"
+    },
+    {
+      "slug": "al-yasmin-residence",
+      "name": "Al-Yasmin Residence",
+      "location": "Riyadh, Saudi Arabia",
+      "programme": "Residential",
+      "services": "Architecture / MEP / Interior Design",
+      "builtUpArea": 7750,
+      "landArea": 3350,
+      "summary": "The courtyard at the heart of the residence carries the same hospitality-inspired character. A long shallow reflection pool runs its full length, while warm timber-clad walls and lush palms frame the space.",
+      "gallery": [
+        "gallery-1.webp",
+        "gallery-2.webp",
+        "gallery-3.webp",
+        "gallery-4.webp",
+        "gallery-5.webp",
+        "gallery-6.webp"
+      ],
+      "sourceUrl": "https://ashmont.com.sa/projects/al-yasmin-residence"
+    },
+    {
+      "slug": "maison-novaire",
+      "name": "Maison Novaire",
+      "location": "Riyadh, Saudi Arabia",
+      "programme": "Residential Interior",
+      "services": "Interior Design & Fit-out",
+      "builtUpArea": 300,
+      "landArea": null,
+      "summary": "Maison Novaire is a full-scope interior design and fit-out project, conceived as a refined home balancing luxury, elegance, and modern comfort. The design language draws on a calm palette of dark and grey tones, softened by warm wood finishes, textured fabrics, and layered lighting to create interiors that feel sophisticated yet inviting.",
+      "gallery": [
+        "gallery-1.webp",
+        "gallery-2.webp",
+        "gallery-3.webp",
+        "gallery-4.webp",
+        "gallery-5.webp",
+        "gallery-6.webp"
+      ],
+      "sourceUrl": "https://ashmont.com.sa/projects/maison-novaire"
+    },
+    {
+      "slug": "olaya-tower",
+      "name": "Olaya Tower",
+      "location": "Riyadh, Saudi Arabia",
+      "programme": "Residential / Retail",
+      "services": "Architectural & Interior Design",
+      "builtUpArea": 8475,
+      "landArea": 1700,
+      "summary": "Al-Olaya Tower earns its place on the Riyadh skyline through design rather than height. Cascading balconies step outward as they rise, each planted with palms, tropical greenery, and sculptural agave spilling over the white concrete edges, giving the tower the appearance of a vertical garden.",
+      "gallery": [
+        "gallery-1.webp",
+        "gallery-2.webp",
+        "gallery-3.webp",
+        "gallery-4.webp",
+        "gallery-5.webp",
+        "gallery-6.webp"
+      ],
+      "sourceUrl": "https://ashmont.com.sa/projects/olaya-tower"
+    },
+    {
+      "slug": "portal-hotel",
+      "name": "Portal Hotel",
+      "location": "Al-Malqa, Riyadh, Saudi Arabia",
+      "programme": "Hospitality",
+      "services": "Interior Design",
+      "builtUpArea": 1700,
+      "landArea": 570,
+      "summary": "Portal Hotel establishes contemporary hospitality excellence through distinctive material expression and atmospheric control. The project demonstrates how interior design can transcend decoration to create meaningful guest experiences.",
+      "gallery": [
+        "gallery-1.webp",
+        "gallery-2.webp",
+        "gallery-3.webp",
+        "gallery-4.webp",
+        "gallery-5.webp",
+        "gallery-6.webp"
+      ],
+      "sourceUrl": "https://ashmont.com.sa/projects/portal-hotel"
+    },
+    {
+      "slug": "regent-park",
+      "name": "Regent Park",
+      "location": "Riyadh, Saudi Arabia",
+      "programme": "Mixed-Use Development",
+      "services": "Full Architectural Design",
+      "builtUpArea": 47360,
+      "landArea": 6850,
+      "summary": "The project is designed across retail, residential, and commercial programmes under the Salmani architectural code in collaboration with the Royal Commission for Riyadh City. Warm Riyadh stone fins, stepped planted terraces, and floor-to-ceiling glazing define a facade that is as considered at street level as it is at the skyline.",
+      "gallery": [
+        "gallery-1.webp",
+        "gallery-2.webp",
+        "gallery-3.webp",
+        "gallery-4.webp",
+        "gallery-5.webp",
+        "gallery-6.webp"
+      ],
+      "sourceUrl": "https://ashmont.com.sa/projects/regent-park"
+    },
+    {
+      "slug": "villa-savoy",
+      "name": "Villa Savoy",
+      "location": "Riyadh, Saudi Arabia",
+      "programme": "Residential",
+      "services": "Architecture / MEP / Interior Design",
+      "builtUpArea": 850,
+      "landArea": 2100,
+      "summary": "Villa Savoy is a two-story private residence where the architecture makes its statement from the street and delivers on it inside. Textured cream stone cladding, dark timber elements, and floor-to-ceiling glazing create a confident, layered facade.",
+      "gallery": [
+        "gallery-1.webp",
+        "gallery-2.webp",
+        "gallery-3.webp",
+        "gallery-4.webp",
+        "gallery-5.webp",
+        "gallery-6.webp"
+      ],
+      "sourceUrl": "https://ashmont.com.sa/projects/villa-savoy"
+    }
+  ]
+}
