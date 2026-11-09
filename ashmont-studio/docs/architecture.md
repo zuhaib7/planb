@@ -44,6 +44,23 @@ src/content/projects.website.json ───────────────�
 - Images are bundled, not hot-linked, so the portfolio works offline and the CSP stays `img-src 'self'`. Cost: about 9.6 MB, which takes the Linux installer from 3 MB to 12 MB. Thumbnails load eagerly only for the first three cards; everything else is `loading="lazy"`.
 - Built-up areas sum to 121,522 m², matching the CMS export; a unit test pins this as a parsing check.
 
+## Feasibility studio (`/studio`)
+
+A client-facing development feasibility model. It began as a study of a browser tycoon game (monthly ticks, build stages, cash and debt, staff, random site events, cap-rate valuation). The engine was kept and made rigorous; the game layer was dropped because it does not fit a premium client app.
+
+| Piece | File | What it does |
+|---|---|---|
+| Engine | `features/studio/engine.ts` | Pure, seeded, no DOM. Monthly cash flow from land (with transaction tax) through Ashmont's stages (pre-concept, concept, coordination, detailed design, permits, tender) and construction (foundation to handover, scaled by size), then lease-up, hold and exit at NOI / cap. Equity funds first, then debt; interest capitalises during construction. Outputs: yield on cost and spread, profit on cost, residual land value, project and equity IRR, NPV, equity multiple, DSCR, peak equity and debt. |
+| Risk | `monteCarlo()` | 1,000 seeded runs drawing permit queries, labour shortages, material spikes, early inspections, rent drift and exit-cap noise. Reports P10/P50/P90 equity IRR, completion range, chance of hitting the target and chance of loss. |
+| Sensitivity | `sensitivity()` | One-at-a-time swings (rent, cost, exit cap, delay, land, interest, occupancy), sorted by impact. |
+| Inputs | `fields.ts` | One spec table drives the form, its validation, and the Zod schema that validates shared scenario links. |
+| Charts | `charts.tsx` | Hand-built SVG: IRR histogram, equity J-curve, programme Gantt, tornado. One axis each, hover tooltips, a table view for every chart, LTR in both languages. Mark colours `--viz-1`/`--viz-2` were validated (lightness band, chroma, CVD, contrast) for both themes. |
+
+- The scenario lives in the URL (`?s=`), so a client can bookmark or share it. It holds no personal data; links are length-capped and schema-validated.
+- "Discuss this scenario" opens the consultation form pre-filled with project type and gross floor area (validated on arrival).
+- Every default value is an **example assumption**, labelled as such on screen with a not-advice notice. The coordination effect (0.65× vs 1.4× event rate) is presented as the user's assumption, not as an Ashmont performance claim.
+- Cost: 9 KB gzip chunk, loaded only on `/studio`. Full recompute (base + 1,000 runs + sensitivity) measured at 23 ms in Chromium, so results update while typing.
+
 ## Device tiers (3D)
 
 `lib/device.ts` probes WebGL at startup:

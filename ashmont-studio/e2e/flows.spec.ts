@@ -92,3 +92,36 @@ test("first meaningful paint under 2.5 s on throttled 4G", async ({ page, browse
   test.info().annotations.push({ type: "headline-visible-ms", description: String(Math.round(visibleAt)) }, { type: "fcp-ms", description: String(fcp) });
   expect(visibleAt).toBeLessThan(2500);
 });
+
+test("feasibility studio: change an input, see risk, hand off to consultation", async ({ page }) => {
+  await start(page, "en", "/studio");
+  const poc = page.getByTestId("studio-kpis").getByText("Profit on cost", { exact: true }).locator("xpath=following-sibling::dd[1]");
+  const before = await poc.textContent();
+  const hard = page.getByLabel("Construction cost");
+  await hard.fill("4500");
+  await expect(poc).not.toHaveText(before ?? "");
+  await expect(page.getByRole("img", { name: "Distribution of equity IRR across scenarios" })).toBeVisible();
+  // The scenario is in the URL, so reloading restores it.
+  await page.waitForFunction(() => location.hash.includes("s="));
+  await page.reload();
+  await expect(page.getByLabel("Construction cost")).toHaveValue("4500");
+  await page.getByRole("link", { name: "Discuss this scenario with Ashmont" }).click();
+  await expect(page.getByLabel("Project type", { exact: true })).toHaveValue("residential");
+});
+
+test("feasibility studio computes within a frame budget on input", async ({ page, isMobile }) => {
+  test.skip(isMobile);
+  await start(page, "en", "/studio");
+  await expect(page.getByTestId("studio-kpis").getByText("Equity IRR", { exact: true })).toBeVisible();
+  const ms = await page.evaluate(async () => {
+    const input = [...document.querySelectorAll("label")].find((l) => l.textContent === "Construction cost")!.control as HTMLInputElement;
+    const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value")!.set!;
+    const t0 = performance.now();
+    setter.call(input, "3300");
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+    await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+    return performance.now() - t0;
+  });
+  test.info().annotations.push({ type: "studio-recompute-ms", description: String(Math.round(ms)) });
+  expect(ms).toBeLessThan(500);
+});

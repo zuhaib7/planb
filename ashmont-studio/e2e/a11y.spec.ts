@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { start } from "./helpers";
 
-const ROUTES = ["/", "/projects", "/projects/regent-park", "/services", "/insights", "/consultation", "/about", "/contact", "/settings", "/privacy"];
+const ROUTES = ["/", "/projects", "/projects/regent-park", "/studio", "/services", "/insights", "/consultation", "/about", "/contact", "/settings", "/privacy"];
 
 for (const lang of ["en", "ar"] as const) {
   for (const route of ROUTES) {

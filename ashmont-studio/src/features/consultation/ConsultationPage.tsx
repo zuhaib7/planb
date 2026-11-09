@@ -1,5 +1,5 @@
 import { useId, useRef, useState, type ReactNode } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button, PageHeader } from "../../design/ui";
 import type { Language } from "../../i18n";
@@ -10,6 +10,17 @@ type Values = Record<keyof ConsultationInput, string | boolean>;
 const EMPTY: Values = { projectType: "", location: "", sizeM2: "", timeline: "", name: "", phone: "", email: "", message: "", consent: false, website: "" };
 const STEP_KEYS = ["project", "details", "contact"] as const;
 const STEP_FIELDS: (keyof Values)[][] = [["projectType", "location"], ["sizeM2", "timeline"], ["name", "phone", "email", "message", "consent", "website"]];
+
+/** Prefill project type and size from the feasibility studio link. Anything invalid is ignored. */
+function prefill(params: URLSearchParams): Values {
+  const type = params.get("type");
+  const size = Number(params.get("size"));
+  return {
+    ...EMPTY,
+    projectType: (PROJECT_TYPES as readonly string[]).includes(type ?? "") ? (type as string) : "",
+    sizeM2: Number.isInteger(size) && size >= 20 && size <= 1_000_000 ? String(size) : "",
+  };
+}
 
 type Status = { kind: "idle" } | { kind: "sending" } | { kind: "done" } | { kind: "failed"; reason: Exclude<SubmitResult, { ok: true }>["reason"] };
 
@@ -30,7 +41,8 @@ export function ConsultationPage() {
   const lang = i18n.language as Language;
   const uid = useId();
   const [step, setStep] = useState(0);
-  const [values, setValues] = useState<Values>(EMPTY);
+  const [params] = useSearchParams();
+  const [values, setValues] = useState<Values>(() => prefill(params));
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<Status>({ kind: "idle" });
   const idempotencyKey = useRef(crypto.randomUUID());

@@ -59,6 +59,12 @@ export function HomePage() {
         </dl>
       </section>
 
+      <section aria-labelledby="studio-cta" className="mb-14 rounded-md border border-line p-6 sm:p-8">
+        <h2 id="studio-cta" className="text-2xl font-light">{t("home.studioTitle")}</h2>
+        <p className="mt-2 max-w-xl text-muted">{t("home.studioBody")}</p>
+        <Link to="/studio" className="mt-6 inline-flex min-h-11 items-center rounded-sm border border-line px-5 text-sm hover:bg-surface">{t("nav.studio")}</Link>
+      </section>
+
       <section aria-labelledby="featured">
         <h2 id="featured" className="eyebrow mb-6">{t("home.featured")}</h2>
         <ul className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4" aria-label={t("home.featured")}>

@@ -2,6 +2,7 @@ export const NAV = [
   { to: "/", key: "home", icon: "home", primary: true },
   { to: "/projects", key: "projects", icon: "grid", primary: true },
   { to: "/services", key: "services", icon: "layers", primary: true },
+  { to: "/studio", key: "studio", icon: "chart", primary: false },
   { to: "/consultation", key: "consultation", icon: "chat", primary: true },
   { to: "/insights", key: "insights", icon: "book", primary: false },
   { to: "/about", key: "about", icon: "info", primary: false },

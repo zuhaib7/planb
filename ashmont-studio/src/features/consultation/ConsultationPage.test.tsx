@@ -81,3 +81,18 @@ describe("ConsultationPage", () => {
     expect(document.documentElement.dir).toBe("rtl");
   });
 });
+
+describe("prefill from the feasibility studio", () => {
+  it("accepts valid type and size and ignores junk", async () => {
+    const user = userEvent.setup();
+    renderWith(<ConsultationPage />, { route: "/consultation?type=hospitality&size=7200" });
+    expect(screen.getByLabelText("Project type")).toHaveValue("hospitality");
+    await user.type(screen.getByLabelText("Location"), "Riyadh");
+    await user.click(screen.getByRole("button", { name: "Next" }));
+    expect(await screen.findByLabelText("Approximate size (m²)")).toHaveValue("7200");
+  });
+  it("ignores invalid prefill", () => {
+    renderWith(<ConsultationPage />, { route: "/consultation?type=castle&size=-5" });
+    expect(screen.getByLabelText("Project type")).toHaveValue("");
+  });
+});

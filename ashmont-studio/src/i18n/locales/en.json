@@ -13,7 +13,8 @@
     "about": "About",
     "contact": "Contact",
     "settings": "Settings",
-    "main": "Main navigation"
+    "main": "Main navigation",
+    "studio": "Feasibility"
   },
   "language": {
     "title": "Choose your language",
@@ -28,7 +29,9 @@
     "lede": "Architecture, interiors and engineering, coordinated from first sketch to final handover.",
     "cta": "Book a consultation",
     "featured": "Featured projects",
-    "stats": "In numbers"
+    "stats": "In numbers",
+    "studioTitle": "Test your project before you commit",
+    "studioBody": "Model cost, timeline, returns and risk in the feasibility studio."
   },
   "stats": {
     "area": "m² designed",
@@ -221,5 +224,164 @@
   "notFound": {
     "title": "Page not found",
     "home": "Go home"
+  },
+  "studio": {
+    "eyebrow": "— Feasibility studio",
+    "title": "Test the numbers",
+    "accent": "before the first line is drawn.",
+    "lede": "Model a development from land to exit: Ashmont's design stages, permits, construction, lease-up and sale. Then stress it with 1,000 simulated delivery scenarios.",
+    "disclaimer": "Illustrative estimates from your assumptions. Not financial, legal or valuation advice. The starting values are examples, not Ashmont market data: replace them with your own.",
+    "reset": "Reset to example",
+    "discuss": "Discuss this scenario with Ashmont",
+    "groups": {
+      "project": "Project",
+      "costs": "Costs",
+      "income": "Income",
+      "finance": "Exit and finance",
+      "delivery": "Delivery"
+    },
+    "programme": {
+      "residential": "Residential",
+      "hospitality": "Hospitality",
+      "mixedUse": "Mixed-use"
+    },
+    "fields": {
+      "landArea": "Land area",
+      "far": "Floor area ratio",
+      "efficiency": "Net to gross",
+      "landPrice": "Land price",
+      "transferTax": "Transfer tax",
+      "hardCost": "Construction cost",
+      "softCostPct": "Design and fees",
+      "contingencyPct": "Contingency",
+      "rent": "Rent (net revenue for hotels)",
+      "occupancy": "Stabilised occupancy",
+      "opexPct": "Operating costs",
+      "leaseUpMonths": "Lease-up",
+      "holdMonths": "Hold after stabilisation",
+      "exitCap": "Exit cap rate",
+      "ltc": "Loan to cost",
+      "interest": "Interest rate",
+      "targetProfit": "Target profit on cost",
+      "discountRate": "Discount rate"
+    },
+    "units": {
+      "m2": "m²",
+      "sarM2": "SAR/m²",
+      "sarM2y": "SAR/m²/yr",
+      "pct": "%",
+      "months": "months",
+      "x": "×"
+    },
+    "hints": {
+      "far": "Gross floor area ÷ land area",
+      "transferTax": "Real estate transaction tax on the land purchase",
+      "softCostPct": "Share of construction cost",
+      "contingencyPct": "Share of construction cost, reserved for unknowns",
+      "targetProfit": "Used for residual land value"
+    },
+    "coordination": {
+      "legend": "Design and delivery coordination",
+      "integrated": "One coordinated team",
+      "fragmented": "Separate consultants",
+      "assumption": "Your assumption: a single coordinated team for architecture, engineering and supervision meets fewer delay and cost events. The model applies 0.65× the base event rate for one team and 1.4× for separate consultants. Change it to match your view."
+    },
+    "kpi": {
+      "leveredIrr": "Equity IRR",
+      "unleveredIrr": "Project IRR",
+      "profitOnCost": "Profit on cost",
+      "yieldOnCost": "Yield on cost",
+      "spread": "{{bps}} bps over the exit cap",
+      "spreadNeg": "{{bps}} bps below the exit cap",
+      "rlv": "Residual land value",
+      "rlvHint": "Most you could pay for the land and still earn {{target}}",
+      "totalCost": "Total development cost",
+      "peakEquity": "Peak equity",
+      "peakDebt": "Peak debt",
+      "exitValue": "Exit value",
+      "completion": "Completion",
+      "completionValue": "Month {{m}}",
+      "equityMultiple": "Equity multiple",
+      "dscr": "Debt service cover",
+      "npv": "NPV at {{rate}}",
+      "na": "n/a",
+      "gfa": "Gross floor area"
+    },
+    "risk": {
+      "title": "Risk: 1,000 delivery scenarios",
+      "lede": "Each run draws permit queries, labour shortages, material price spikes, early inspections, rent movement and exit-yield movement.",
+      "irrRange": "Equity IRR range",
+      "p10": "Downside (P10)",
+      "p50": "Median (P50)",
+      "p90": "Upside (P90)",
+      "completionRange": "Completion",
+      "months": "months {{a}} to {{b}}",
+      "target": "Chance of reaching {{target}} profit on cost",
+      "loss": "Chance of a loss",
+      "histogram": "Distribution of equity IRR across scenarios",
+      "bin": "IRR {{a}} to {{b}}",
+      "runs": "{{n}} runs"
+    },
+    "cash": {
+      "title": "Equity cash position",
+      "lede": "Cumulative cash in and out for the equity investor: the J-curve.",
+      "month": "Month {{m}}",
+      "position": "Position",
+      "completion": "Completion",
+      "exit": "Exit",
+      "stage": "Stage"
+    },
+    "timeline": {
+      "title": "Programme",
+      "design": "Design and approvals",
+      "construction": "Construction",
+      "months": "{{n}} mo",
+      "total": "{{n}} months to handover"
+    },
+    "stages": {
+      "land": "Land",
+      "preConcept": "Pre-concept",
+      "concept": "Concept",
+      "coordination": "Coordination and planning",
+      "detailed": "Detailed design",
+      "permits": "Permits",
+      "tender": "Tender",
+      "foundation": "Foundation",
+      "structure": "Structure",
+      "mep": "MEP",
+      "finishing": "Finishing and fit-out",
+      "handover": "Inspection and handover"
+    },
+    "sens": {
+      "title": "What moves the result",
+      "lede": "Each bar changes one assumption and keeps the rest.",
+      "metricIrr": "Equity IRR",
+      "metricPoc": "Profit on cost",
+      "downside": "Downside",
+      "upside": "Upside",
+      "base": "Base {{v}}",
+      "rows": {
+        "rent": "Rent",
+        "hardCost": "Construction cost",
+        "exitCap": "Exit cap rate",
+        "delay": "Construction delay",
+        "landPrice": "Land price",
+        "interest": "Interest rate",
+        "occupancy": "Occupancy"
+      }
+    },
+    "table": "Show data as a table",
+    "learn": {
+      "title": "Terms used here",
+      "items": [
+        "Yield on cost is stabilised net income divided by total cost. Build when it clearly beats the exit cap rate; the gap is your reward for development risk.",
+        "Exit value is stabilised net income divided by the cap rate. At a 7% cap, SAR 1M of net income is worth about SAR 14.3M.",
+        "Residual land value is the end value, less every other cost and the profit you need. It is the most the land is worth to this scheme.",
+        "Equity IRR is the annual return on the money you put in, after the bank is paid. Leverage raises it when the project earns more than the interest rate, and lowers it when it does not.",
+        "P10 and P90: one scenario in ten does worse than P10, one in ten does better than P90.",
+        "Permits are often the longest step you do not control. Early engagement with the municipality and Civil Defense shortens it."
+      ]
+    },
+    "summary": "Live result"
   }
 }

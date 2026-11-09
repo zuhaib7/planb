@@ -43,6 +43,13 @@
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 
   --touch-min: 44px;
+
+  /* Chart marks only. Brand teal and gold are too muted for marks (they fail the
+     chroma floor), so these are brand-hue steps validated with the dataviz
+     validator: lightness band, chroma, CVD and normal-vision separation, 3:1 on surface. */
+  --viz-1: #009397; /* teal */
+  --viz-2: #ad7c1d; /* gold */
+  --viz-grid: #e3ddcc;
 }
 
 :root[data-theme="dark"] {
@@ -56,6 +63,9 @@
   --color-border: #2c5a61;
   --color-danger: #f2a7a7;
   --color-focus: var(--brand-gold);
+  --viz-1: #1d97a3;
+  --viz-2: #ba882e;
+  --viz-grid: #2c5a61;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -70,5 +80,8 @@
     --color-border: #2c5a61;
     --color-danger: #f2a7a7;
     --color-focus: var(--brand-gold);
+    --viz-1: #1d97a3;
+    --viz-2: #ba882e;
+    --viz-grid: #2c5a61;
   }
 }

@@ -53,9 +53,10 @@ export function AsyncState({ status, emptyText, onRetry }: { status: "loading" |
   );
 }
 
-export function Icon({ name, className = "h-5 w-5" }: { name: "home" | "grid" | "layers" | "book" | "chat" | "info" | "phone" | "cog"; className?: string }) {
+export function Icon({ name, className = "h-5 w-5" }: { name: "home" | "grid" | "layers" | "book" | "chat" | "info" | "phone" | "cog" | "chart"; className?: string }) {
   const paths: Record<typeof name, string> = {
     home: "M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z",
+    chart: "M4 20V10M10 20V4M16 20v-7M22 20H2",
     grid: "M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z",
     layers: "M12 3l9 5-9 5-9-5zM3 13l9 5 9-5",
     book: "M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM8 7h7",

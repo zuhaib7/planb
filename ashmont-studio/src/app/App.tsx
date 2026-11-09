@@ -18,6 +18,7 @@ const ConsultationPage = lazy(() => import("../features/consultation/Consultatio
 const AboutPage = lazy(() => import("../features/about/AboutPage").then((m) => ({ default: m.AboutPage })));
 const ContactPage = lazy(() => import("../features/contact/ContactPage").then((m) => ({ default: m.ContactPage })));
 const SettingsPage = lazy(() => import("../features/settings/SettingsPage").then((m) => ({ default: m.SettingsPage })));
+const StudioPage = lazy(() => import("../features/studio/StudioPage").then((m) => ({ default: m.StudioPage })));
 const PrivacyPage = lazy(() => import("../features/settings/PrivacyPage").then((m) => ({ default: m.PrivacyPage })));
 
 const queryClient = new QueryClient({ defaultOptions: { queries: { retry: 1, staleTime: 5 * 60_000, networkMode: "offlineFirst" } } });
@@ -32,6 +33,7 @@ export function AppRoutes() {
         <Route path="projects" element={<ProjectsPage />} />
         <Route path="projects/:slug" element={<ProjectDetailPage />} />
         <Route path="services" element={<ServicesPage />} />
+        <Route path="studio" element={<StudioPage />} />
         <Route path="insights" element={<InsightsPage />} />
         <Route path="consultation" element={<ConsultationPage />} />
         <Route path="about" element={<AboutPage />} />
