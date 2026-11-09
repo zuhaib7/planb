@@ -1,0 +1,55 @@
+name: ashmont-studio
+
+on:
+  push:
+    paths: ["ashmont-studio/**", ".github/workflows/ashmont-studio.yml"]
+  pull_request:
+    paths: ["ashmont-studio/**", ".github/workflows/ashmont-studio.yml"]
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    working-directory: ashmont-studio
+
+jobs:
+  web:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm, cache-dependency-path: ashmont-studio/package-lock.json }
+      - run: npm ci
+      - name: Block on high-severity advisories
+        run: npm audit --audit-level=high
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: e2e-report, path: ashmont-studio/test-results, retention-days: 14 }
+
+  rust:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Tauri Linux prerequisites
+        working-directory: .
+        run: sudo apt-get update && sudo apt-get install -y libwebkit2gtk-4.1-dev librsvg2-dev libayatana-appindicator3-dev libxdo-dev
+      - uses: dtolnay/rust-toolchain@stable
+        with: { components: clippy }
+      - uses: Swatinem/rust-cache@v2
+        with: { workspaces: ashmont-studio/src-tauri }
+      - name: Frontend dist placeholder for tauri::generate_context!
+        run: mkdir -p dist && echo '<!doctype html>' > dist/index.html
+      - run: cargo clippy --all-targets -- -D warnings
+        working-directory: ashmont-studio/src-tauri
+      - run: cargo clippy --all-targets --features updater -- -D warnings
+        working-directory: ashmont-studio/src-tauri
+      - name: Block on RustSec advisories
+        run: cargo install cargo-audit --locked && cargo audit
+        working-directory: ashmont-studio/src-tauri

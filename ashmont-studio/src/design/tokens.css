@@ -1,0 +1,74 @@
+/*
+ * Ashmont design tokens.
+ * Brand source values (ashmont-brand guidelines):
+ *   teal #20494F and taupe #857C74 come from the website code.
+ *   cream #F8F5EB, deep teal #17353A and gold #B2A05E are sampled from the films (approximate).
+ * Replace the sampled values with the Graphic Design master values when they arrive.
+ *
+ * Contrast (WCAG 2.2, checked in src/design/tokens.test.ts):
+ *   Brand gold on cream is 2.38:1 and brand taupe on cream is 3.75:1, both below AA for text.
+ *   So text uses the derived "-ink" variants; the raw brand gold is for rules, bars and
+ *   large accents on dark teal only (5.03:1 on deep teal).
+ */
+:root {
+  --brand-teal: #20494f;
+  --brand-teal-deep: #17353a;
+  --brand-cream: #f8f5eb;
+  --brand-gold: #b2a05e;
+  --brand-taupe: #857c74;
+
+  /* Semantic, light theme */
+  --color-bg: var(--brand-cream);
+  --color-surface: #ffffff;
+  --color-fg: var(--brand-teal-deep);
+  --color-fg-muted: #6f665e;   /* taupe-ink, 5.15:1 on cream */
+  --color-primary: var(--brand-teal);
+  --color-on-primary: var(--brand-cream);
+  --color-accent: var(--brand-gold);       /* decorative only */
+  --color-accent-ink: #7a6a2e;             /* gold-ink, 4.9:1 on cream */
+  --color-border: #e3ddcc;
+  --color-danger: #9b2c2c;
+  --color-focus: var(--brand-teal);
+
+  /* Type: confirm brand typefaces from the site CSS / Graphic Design. System stacks until then. */
+  --font-sans: ui-sans-serif, system-ui, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-arabic: "Geeza Pro", "Noto Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+
+  --radius-sm: 2px;
+  --radius-md: 6px;
+
+  --motion-fast: 150ms;
+  --motion-base: 300ms;
+  --motion-slow: 550ms; /* entrance ceiling stays under 600 ms */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --touch-min: 44px;
+}
+
+:root[data-theme="dark"] {
+  --color-bg: var(--brand-teal-deep);
+  --color-surface: var(--brand-teal);
+  --color-fg: var(--brand-cream);
+  --color-fg-muted: #a59c93; /* 4.84:1 on deep teal */
+  --color-primary: var(--brand-cream);
+  --color-on-primary: var(--brand-teal-deep);
+  --color-accent-ink: var(--brand-gold); /* 5.03:1 on deep teal */
+  --color-border: #2c5a61;
+  --color-danger: #f2a7a7;
+  --color-focus: var(--brand-gold);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: var(--brand-teal-deep);
+    --color-surface: var(--brand-teal);
+    --color-fg: var(--brand-cream);
+    --color-fg-muted: #a59c93;
+    --color-primary: var(--brand-cream);
+    --color-on-primary: var(--brand-teal-deep);
+    --color-accent-ink: var(--brand-gold);
+    --color-border: #2c5a61;
+    --color-danger: #f2a7a7;
+    --color-focus: var(--brand-gold);
+  }
+}

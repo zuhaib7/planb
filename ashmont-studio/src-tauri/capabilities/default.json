@@ -1,0 +1,27 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Least-privilege capability for the main window. No filesystem, shell or custom commands.",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    {
+      "identifier": "opener:allow-open-url",
+      "allow": [
+        { "url": "https://wa.me/*" },
+        { "url": "https://www.ashmont.com.sa/*" },
+        { "url": "https://maps.google.com/*" },
+        { "url": "https://www.google.com/maps/*" },
+        { "url": "https://www.instagram.com/*" },
+        { "url": "https://www.linkedin.com/*" },
+        { "url": "tel:*" },
+        { "url": "mailto:*" }
+      ]
+    },
+    "store:allow-load",
+    "store:allow-get",
+    "store:allow-set",
+    "store:allow-save",
+    "store:allow-clear"
+  ]
+}

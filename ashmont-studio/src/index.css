@@ -1,0 +1,36 @@
+@import "tailwindcss";
+@import "./design/tokens.css";
+
+@theme inline {
+  --color-bg: var(--color-bg);
+  --color-surface: var(--color-surface);
+  --color-fg: var(--color-fg);
+  --color-muted: var(--color-fg-muted);
+  --color-primary: var(--color-primary);
+  --color-on-primary: var(--color-on-primary);
+  --color-accent: var(--color-accent);
+  --color-accent-ink: var(--color-accent-ink);
+  --color-line: var(--color-border);
+  --color-danger: var(--color-danger);
+  --font-sans: var(--font-sans);
+}
+
+html { background: var(--color-bg); color: var(--color-fg); font-family: var(--font-sans); }
+html[lang="ar"] { font-family: var(--font-arabic); }
+body { margin: 0; min-height: 100dvh; -webkit-font-smoothing: antialiased; }
+
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+
+/* Section label: small tracked capitals, e.g. "— WHAT WE DO". No tracking in Arabic. */
+.eyebrow { font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-fg-muted); }
+html[lang="ar"] .eyebrow { letter-spacing: 0; }
+
+.sr-only-focusable:not(:focus) { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+/* Reduced motion: OS setting or the in-app toggle (data-reduced-motion on <html>). */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 1ms !important; transition-duration: 1ms !important; scroll-behavior: auto !important; }
+}
+html[data-reduced-motion="true"] *, html[data-reduced-motion="true"] *::before, html[data-reduced-motion="true"] *::after {
+  animation-duration: 1ms !important; transition-duration: 1ms !important; scroll-behavior: auto !important;
+}

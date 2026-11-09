@@ -1,0 +1,216 @@
+{
+  "app": {
+    "name": "Ashmont Studio",
+    "descriptor": "Architecture • Interior Design • Engineering",
+    "skip": "Skip to content"
+  },
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "services": "Services",
+    "insights": "Insights",
+    "consultation": "Consultation",
+    "about": "About",
+    "contact": "Contact",
+    "settings": "Settings",
+    "main": "Main navigation"
+  },
+  "language": {
+    "title": "Choose your language",
+    "en": "English",
+    "ar": "العربية",
+    "continue": "Continue"
+  },
+  "home": {
+    "eyebrow": "— Ashmont",
+    "headline1": "No gaps between",
+    "headline2": "vision and reality.",
+    "lede": "Architecture, interiors and engineering, coordinated from first sketch to final handover.",
+    "cta": "Book a consultation",
+    "featured": "Featured projects",
+    "stats": "In numbers"
+  },
+  "stats": {
+    "area": "m² designed",
+    "projects": "projects delivered",
+    "units": "residential units",
+    "team": "team members"
+  },
+  "projects": {
+    "eyebrow": "— Our work",
+    "title": "Projects",
+    "filter": "Filter by type",
+    "all": "All",
+    "residential": "Residential",
+    "hospitality": "Hospitality",
+    "mixedUse": "Mixed-use",
+    "empty": "No projects in this category yet.",
+    "open": "View project",
+    "back": "Back to projects",
+    "facts": "Key facts",
+    "factsPending": "Project facts are shown once the client has verified them.",
+    "gallery": "Gallery",
+    "galleryPending": "Project photography will appear here.",
+    "viewer": "3D model",
+    "explore3d": "Explore in 3D",
+    "noWebgl": "Your device can't display 3D here. Static views are shown instead.",
+    "modelPending": "The interactive model for this project is being prepared.",
+    "notFound": "We couldn't find that project.",
+    "controls": {
+      "rotateLeft": "Rotate left",
+      "rotateRight": "Rotate right",
+      "zoomIn": "Zoom in",
+      "zoomOut": "Zoom out",
+      "reset": "Reset view",
+      "section": "Section height",
+      "material": "Materials",
+      "stone": "Stone",
+      "timber": "Timber",
+      "white": "White model",
+      "light": "Lighting",
+      "day": "Day",
+      "night": "Night",
+      "illustrative": "Illustrative massing, not a delivered design.",
+      "description": "Illustrative 3D massing: a stepped stone podium with two volumes and a planted terrace. Use the buttons to rotate, zoom, cut a section and change materials and light."
+    }
+  },
+  "services": {
+    "eyebrow": "— What we do",
+    "title": "Services",
+    "additional": "Also part of our work",
+    "architecture": {
+      "title": "Architecture",
+      "body": "From massing to buildable design packages."
+    },
+    "interior": {
+      "title": "Interior design",
+      "body": "Material, proportion and light, resolved together."
+    },
+    "engineering": {
+      "title": "Engineering coordination",
+      "body": "Structural and MEP, coordinated with the design."
+    },
+    "consultation": {
+      "title": "Project consultation",
+      "body": "Clear advice before the first line is drawn."
+    },
+    "supervision": {
+      "title": "Project supervision",
+      "body": "Precision on site, through to handover."
+    },
+    "extra": [
+      "BIM-based workflows",
+      "Fast-track delivery",
+      "LEED and Mostadam-aligned sustainability",
+      "Municipality and Civil Defense approval coordination",
+      "Feasibility studies and site evaluation"
+    ]
+  },
+  "insights": {
+    "eyebrow": "— Insights",
+    "title": "Insights",
+    "empty": "Articles will appear here soon.",
+    "offline": "You're offline. Showing saved articles."
+  },
+  "about": {
+    "eyebrow": "— About",
+    "title": "Ashmont",
+    "meaning": "ash: natural, elemental, honest. mont: stability, structure, permanence.",
+    "philosophy": "We don't design things that just look good. We design things that last.",
+    "triad": "Authentic. Grounded. Timeless."
+  },
+  "contact": {
+    "eyebrow": "— Contact",
+    "title": "Great vision starts with a conversation.",
+    "phone": "Phone",
+    "email": "Email",
+    "whatsapp": "WhatsApp",
+    "address": "Address",
+    "addressValue": "Prince Khalid bin Bandar bin Abdulaziz Street, Riyadh",
+    "map": "Open in Maps",
+    "web": "Website"
+  },
+  "settings": {
+    "eyebrow": "— Settings",
+    "title": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "themeSystem": "System",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "reducedMotion": "Reduce motion",
+    "dataSaver": "Data saver",
+    "dataSaverHint": "Turns off 3D models and video.",
+    "clearCache": "Clear cached content",
+    "cacheCleared": "Cached content cleared.",
+    "privacy": "Privacy notice"
+  },
+  "privacy": {
+    "title": "Privacy notice",
+    "version": "Version {{version}}",
+    "body": "When you request a consultation we collect only what we need to respond: your name, how to reach you and your project details. We use it to contact you about your project and nothing else. The data is processed under the Saudi Personal Data Protection Law. You can ask us to see, correct or delete it at any time by writing to info@ashmont.com.sa. This app keeps no copy of your request on your device after it is sent, and contains no analytics or trackers."
+  },
+  "consultation": {
+    "eyebrow": "— Consultation",
+    "title": "Start with a conversation.",
+    "step": "Step {{current}} of {{total}}",
+    "next": "Next",
+    "back": "Back",
+    "submit": "Send request",
+    "sending": "Sending…",
+    "steps": {
+      "project": "Your project",
+      "details": "Size and timeline",
+      "contact": "How to reach you"
+    },
+    "projectType": "Project type",
+    "location": "Location",
+    "size": "Approximate size (m²)",
+    "timeline": "Timeline",
+    "types": {
+      "residential": "Residential",
+      "commercial": "Commercial",
+      "hospitality": "Hospitality",
+      "mixedUse": "Mixed-use",
+      "interior": "Interior only"
+    },
+    "timelines": {
+      "now": "Ready to start",
+      "3m": "Within 3 months",
+      "6m": "Within 6 months",
+      "later": "Later"
+    },
+    "name": "Full name",
+    "phone": "Mobile number",
+    "email": "Email",
+    "message": "Anything we should know (optional)",
+    "consent": "I agree that Ashmont may use these details to contact me about this request, as described in the privacy notice.",
+    "readPrivacy": "Read the privacy notice",
+    "success": "Thank you. Our team will contact you shortly.",
+    "error": "We couldn't send your request. Please try again.",
+    "rateLimited": "Too many attempts. Please wait a moment and try again.",
+    "offline": "You're offline. Connect and try again.",
+    "notConfigured": "Online requests are not available yet. Please call or email us.",
+    "retry": "Try again",
+    "another": "Send another request"
+  },
+  "errors": {
+    "required": "This field is required.",
+    "tooShort": "Please enter at least {{min}} characters.",
+    "tooLong": "Please keep this under {{max}} characters.",
+    "email": "Please enter a valid email address.",
+    "phone": "Please enter a valid Saudi mobile number, for example 05X XXX XXXX.",
+    "number": "Please enter a number between {{min}} and {{max}}.",
+    "consent": "Please agree before sending.",
+    "choose": "Please choose an option."
+  },
+  "state": {
+    "loading": "Loading",
+    "retry": "Try again",
+    "offline": "You're offline."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "home": "Go home"
+  }
+}
