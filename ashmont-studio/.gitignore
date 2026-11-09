@@ -36,3 +36,4 @@ coverage
 *.keystore
 *.jks
 *.p12
+dist-single

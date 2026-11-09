@@ -14,7 +14,8 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test --trace off",
     "audit": "npm audit --audit-level=high",
-    "check": "npm run typecheck && npm run lint && npm test && npm run build"
+    "check": "npm run typecheck && npm run lint && npm test && npm run build",
+    "build:single": "tsc && vite build --config vite.single.config.ts"
   },
   "dependencies": {
     "@react-three/drei": "10.7.9",
@@ -54,6 +55,7 @@
     "typescript": "6.0.3",
     "typescript-eslint": "8.72.1",
     "vite": "8.3.6",
+    "vite-plugin-singlefile": "2.3.4",
     "vitest": "5.1.0"
   },
   "description": "Ashmont Studio: portfolio, services and consultation app (Tauri 2)"
