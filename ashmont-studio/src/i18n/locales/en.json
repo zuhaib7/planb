@@ -382,6 +382,32 @@
         "Permits are often the longest step you do not control. Early engagement with the municipality and Civil Defense shortens it."
       ]
     },
-    "summary": "Live result"
+    "summary": "Live result",
+    "massing": {
+      "title": "Watch it take shape",
+      "lede": "Scrub through the programme. The massing follows the same timeline and cash flow as the numbers above.",
+      "month": "Month",
+      "play": "Play",
+      "pause": "Pause",
+      "phase": {
+        "land": "Land acquired",
+        "design": "Design",
+        "permits": "Permits",
+        "tender": "Tender",
+        "foundation": "Foundation",
+        "structure": "Structure",
+        "mep": "MEP",
+        "finishing": "Finishing",
+        "handover": "Handover",
+        "leaseUp": "Leasing up",
+        "operating": "Operating"
+      },
+      "describe": "Month {{m}} of {{total}}. {{phase}}. {{framed}} of {{floors}} floors framed, {{clad}} clad.",
+      "occupied": "{{pct}} let.",
+      "position": "Equity position",
+      "spent": "Spent to date",
+      "assumption": "Volume study only, not a design: {{floors}} floors of {{h}} m on {{cov}} of the plot, so the floor area matches the numbers above.",
+      "fallback": "3D is off (data saver or no WebGL). Elevation view shown instead."
+    }
   }
 }

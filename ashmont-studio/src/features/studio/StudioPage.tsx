@@ -6,6 +6,7 @@ import type { Language } from "../../i18n";
 import { CONSTRUCTION_FROM, monteCarlo, sensitivity, simulate, type Coordination, type Inputs, type Programme } from "./engine";
 import { GROUPS, decodeScenario, defaultsFor, encodeScenario, type FieldSpec } from "./fields";
 import { CashLine, Gantt, Histogram, Tornado } from "./charts";
+import { MassingSection } from "./MassingSection";
 
 const PROGRAMMES: Programme[] = ["residential", "hospitality", "mixedUse"];
 
@@ -20,8 +21,9 @@ function useFormat(lang: Language) {
       const s = a >= 1e6 ? `${n1.format(v / 1e6)}${lang === "ar" ? " مليون" : "M"}` : a >= 1e3 ? `${n0.format(v / 1e3)}${lang === "ar" ? " ألف" : "K"}` : n0.format(v);
       return lang === "ar" ? `${s} ${sar}` : `${sar} ${s}`;
     };
+    // Wrapped in a left-to-right isolate (U+2066…U+2069) so "13.0%" never reorders to "%13.0" inside Arabic text.
     const pct = (v: number | null, digits = 1) =>
-      v === null || !Number.isFinite(v) ? "—" : `${new Intl.NumberFormat(loc, { maximumFractionDigits: digits, minimumFractionDigits: digits }).format(v * 100)}%`;
+      v === null || !Number.isFinite(v) ? "—" : `\u2066${new Intl.NumberFormat(loc, { maximumFractionDigits: digits, minimumFractionDigits: digits }).format(v * 100)}%\u2069`;
     return { money, pct, n0, n1 };
   }, [lang]);
 }
@@ -86,7 +88,12 @@ export function StudioPage() {
 
   // Keep the scenario in the URL so it can be bookmarked or shared (no personal data in it).
   useEffect(() => {
-    const id = setTimeout(() => setParams({ s: encodeScenario(inputs) }, { replace: true }), 300);
+    const id = setTimeout(() => {
+      // Skip if the user has already navigated away (e.g. clicked "Discuss"), or this
+      // replace would undo their navigation.
+      if (!window.location.hash.startsWith("#/studio")) return;
+      setParams({ s: encodeScenario(inputs) }, { replace: true });
+    }, 300);
     return () => clearTimeout(id);
   }, [inputs, setParams]);
 
@@ -227,6 +234,8 @@ export function StudioPage() {
               events={[{ m: res.completionMonth, label: t("studio.cash.completion") }, { m: res.exitMonth, label: t("studio.cash.exit") }]}
             />
           </section>
+
+          <MassingSection inputs={deferred} res={res} cumulative={cumulative} money={f.money} />
 
           <section aria-labelledby="time-h">
             <h2 id="time-h" className="mb-1 text-xl font-light">{t("studio.timeline.title")}</h2>

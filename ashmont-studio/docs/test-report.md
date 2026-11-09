@@ -8,8 +8,8 @@ Run on 2026-11-09 (updated after the website data import), Linux x86_64, Node 22
 |---|---|---|
 | Type check (app + tests) | `npm run typecheck` | Pass |
 | Lint | `npm run lint` | Pass (0 problems) |
-| Unit and component tests (Vitest) | `npm test` | **103 passed**, 0 failed (9 files) |
-| E2E + accessibility (Playwright + axe) | `npm run test:e2e` | **58 passed**, 0 failed, 4 skipped by design |
+| Unit and component tests (Vitest) | `npm test` | **113 passed**, 0 failed (11 files) |
+| E2E + accessibility (Playwright + axe) | `npm run test:e2e` | **60 passed**, 0 failed, 4 skipped by design |
 | Rust lint | `cargo clippy --all-targets -- -D warnings`, and again with `--features updater` | Pass |
 | Release build, Linux | `npm run tauri build -- --bundles deb` | Pass: `Ashmont Studio_0.1.0_amd64.deb`, 12.3 MiB (2.97 MiB before the 9.6 MB of project images) |
 | Desktop smoke test | packaged binary under Xvfb for 10 s | Launched, stayed alive, rendered the language picker under the strict CSP (`screenshots/linux-desktop-first-launch.png`) |
@@ -19,6 +19,7 @@ Run on 2026-11-09 (updated after the website data import), Linux x86_64, Node 22
 ## What the tests cover
 
 - **Feasibility engine**: IRR annualisation and the NPV-at-IRR identity; stage cost shares sum to 100%; spend reconciles to land + soft + hard; exit timing; equity-before-debt funding; debt repaid at exit; residual land value round trip (buying at it earns the target within 2 points); direction of every driver; stages never shorter than a month across 2,000 random draws; Monte Carlo determinism and P10 ≤ P50 ≤ P90; 1,000 runs under 400 ms. UI: results, risk and four charts with table views; input validation; programme switch; shared-link load; tampered links rejected; consultation prefill accepted when valid and ignored when not; Arabic.
+- **Massing**: footprint × floors equals GFA for every programme; empty plot through design and permits; floors only grow and cladding never outruns structure across the whole timeline; complete with no crane after handover; text description and slider value text match the scene; 2D fallback without WebGL. E2E scrubs the 3D view with the keyboard and plays it. A regression stress test (15 repeats × 2 viewports) covers the URL-sync race on the hand-off to consultation: 30/30 with the fix, 14/30 failures without it.
 - **Portfolio data**: 12 projects load; built-up areas sum to the CMS total; every project has Arabic copy and translated programme/scope; no award claims or construction dates; areas valid; images present; e2e checks no broken images.
 - **Design tokens**: every text/background pair in light and dark themes meets WCAG 2.2 AA 4.5:1; focus ring ≥ 3:1. Also asserts raw brand gold fails as text, so nobody "simplifies" `accent-ink` away.
 - **i18n**: Arabic and English key sets identical, placeholders match, no empty strings, no exclamation marks (brand voice), `<html dir>` flips correctly.

@@ -125,3 +125,18 @@ test("feasibility studio computes within a frame budget on input", async ({ page
   test.info().annotations.push({ type: "studio-recompute-ms", description: String(Math.round(ms)) });
   expect(ms).toBeLessThan(500);
 });
+
+test("feasibility studio: 3D massing follows the timeline", async ({ page }) => {
+  await start(page, "en", "/studio");
+  const canvas = page.getByRole("img", { name: /^Month \d+ of \d+\./ });
+  await expect(canvas).toBeVisible({ timeout: 15000 });
+  const slider = page.getByRole("slider", { name: /Month/ });
+  await slider.fill("0");
+  await expect(canvas).toHaveAccessibleName(/Land acquired\. 0 of \d+ floors framed/);
+  await slider.focus();
+  await page.keyboard.press("End");
+  await expect(canvas).toHaveAccessibleName(/Operating\./);
+  await page.getByRole("button", { name: "Play" }).click();
+  await expect(page.getByRole("button", { name: "Pause" })).toBeVisible();
+  await page.getByRole("button", { name: "Pause" }).click();
+});
