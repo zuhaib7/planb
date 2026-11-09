@@ -1,0 +1,19 @@
+{
+  "name": "Event Horizon",
+  "mode": "dark",
+  "colors": {
+    "void":          "#030308",
+    "space":         "#0A0814",
+    "nebula-deep":   "#140D24",
+    "starlight":     "#8B85A8",
+    "text":          "#E8E4F5",
+    "accretion":     "#FF9A3C",
+    "photon-ring":   "#FFD27A",
+    "core-white":    "#FFF1D0",
+    "redshift":      "#D9431A",
+    "nebula-violet": "#9B7BFF",
+    "blueshift":     "#22D3EE",
+    "danger":        "#FF5A5F"
+  },
+  "os_accent": "#FF9A3C"
+}
